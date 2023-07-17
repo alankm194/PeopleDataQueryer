@@ -7,24 +7,24 @@ import com.alan.peopledataqueryer.filter.PersonFilter;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 public class PersonQueryer implements DataQueryer {
 
     private final List<Person> fullPersonList;
+
+    private final Map<Integer, PersonFilter> optionToFilterMap;
     public PersonQueryer(String fileLocation, FileLoader loader) throws IOException {
+        optionToFilterMap = Map.of(
+                1, new CompanyNameFilterByEsq(),
+                2, new CountyNameFilterByDerbyshire()
+        );
         fullPersonList = loader.parseFile(fileLocation);
     }
 
-    @Override
-    public List<Person> filterByCompanyContainsEsq() {
-        PersonFilter companyNameFilter = new CompanyNameFilterByEsq();
-        return companyNameFilter.filter(fullPersonList);
-    }
-
-    @Override
-    public List<Person> filterByCountyNameDerbyshire() {
-        PersonFilter countyNameFilter = new CountyNameFilterByDerbyshire();
-        return countyNameFilter.filter(fullPersonList);
+    public List<Person> executeFilter(int option) {
+        PersonFilter personFilter = optionToFilterMap.get(option);
+        return personFilter.filter(fullPersonList);
     }
 
 

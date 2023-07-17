@@ -5,7 +5,6 @@ import java.util.List;
 
 public interface DataQueryer {
 
-    public List<Person> filterByCompanyContainsEsq();
+    public List<Person> executeFilter(int option);
 
-    public List<Person> filterByCountyNameDerbyshire();
 }

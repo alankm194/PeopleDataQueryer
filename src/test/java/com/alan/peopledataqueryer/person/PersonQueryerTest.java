@@ -41,7 +41,7 @@ public class PersonQueryerTest {
         FileLoader mockLoader = mock(CSVFileLoader.class);
         when(mockLoader.parseFile("myfilelocation")).thenReturn(List.of(testPerson, testPerson2));
         PersonQueryer pq = new PersonQueryer("myfilelocation", mockLoader);
-        List<Person> results = pq.filterByCompanyContainsEsq();
+        List<Person> results = pq.executeFilter(1);
         assertEquals(1, results.size());
         assertEquals(testPerson, results.get(0));
     }
@@ -74,7 +74,7 @@ public class PersonQueryerTest {
         FileLoader mockLoader = mock(CSVFileLoader.class);
         when(mockLoader.parseFile("myfilelocation")).thenReturn(List.of(testPerson, testPerson2));
         PersonQueryer pq = new PersonQueryer("myfilelocation", mockLoader);
-        List<Person> results = pq.filterByCompanyContainsEsq();
+        List<Person> results = pq.executeFilter(2);
         assertEquals(1, results.size());
         assertEquals(testPerson, results.get(0));
     }
