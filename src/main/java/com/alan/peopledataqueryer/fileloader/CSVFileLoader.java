@@ -10,7 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVFileLoader {
+public class CSVFileLoader implements FileLoader{
 
     private static final int STARTING_POSITION = 2;
     enum CSVHeaders {
