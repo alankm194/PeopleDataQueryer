@@ -1,6 +1,8 @@
 package com.alan.peopledataqueryer.cli;
 
 import com.alan.peopledataqueryer.person.DataQueryer;
+import com.alan.peopledataqueryer.person.Person;
+import com.alan.peopledataqueryer.person.ResultFormat;
 
 import java.util.List;
 import java.util.Scanner;
@@ -41,17 +43,24 @@ public class PersonQueryCli {
                 try {
                     int option = Integer.parseInt(command);
                     if (option >= 1 && option <= optionsList.size()) {
-                        dataQueryer.executeFilter(option).forEach(System.out::println);
+                        printResults(dataQueryer.executeFilter(option));
                     } else {
                         System.out.println("Error, Number out of range of possible options. Please enter in a number that corresponds to a command");
                     }
                 } catch (NumberFormatException E) {
-                    System.out.println("Error, command is not a number. Please enter in a number that corresponds with a command.");
+                    System.out.println("Error, command is not a number. Please enter in a number that corresponds with a command.\n");
                 }
             }
         } while (!exit);
     }
 
+    public void printResults(List<ResultFormat> results) {
+        System.out.println("Count: " + results.size());
+        results.forEach(result -> System.out.printf("%s - %s - %s\n",
+                result.getPosition(),
+                result.getName(),
+                result.getCompany()));
+    }
 
 
 
