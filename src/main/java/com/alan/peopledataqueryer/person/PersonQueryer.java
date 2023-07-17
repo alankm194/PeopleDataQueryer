@@ -1,6 +1,7 @@
 package com.alan.peopledataqueryer.person;
 
 import com.alan.peopledataqueryer.fileloader.FileLoader;
+import com.alan.peopledataqueryer.filter.AddressFilterByThreeDigitHousenumber;
 import com.alan.peopledataqueryer.filter.CompanyNameFilterByEsq;
 import com.alan.peopledataqueryer.filter.CountyNameFilterByDerbyshire;
 import com.alan.peopledataqueryer.filter.PersonFilter;
@@ -17,7 +18,8 @@ public class PersonQueryer implements DataQueryer {
     public PersonQueryer(String fileLocation, FileLoader loader) throws IOException {
         optionToFilterMap = Map.of(
                 1, new CompanyNameFilterByEsq(),
-                2, new CountyNameFilterByDerbyshire()
+                2, new CountyNameFilterByDerbyshire(),
+                3, new AddressFilterByThreeDigitHousenumber()
         );
         fullPersonList = loader.parseFile(fileLocation);
     }
