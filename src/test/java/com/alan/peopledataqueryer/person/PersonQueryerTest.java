@@ -45,4 +45,37 @@ public class PersonQueryerTest {
         assertEquals(1, results.size());
         assertEquals(testPerson, results.get(0));
     }
+
+    @Test
+    public void testCountyFilterByDerbyshireOption() throws IOException {
+        Person testPerson = Person.builder().firstName("jj").lastName("doe")
+                .companyName("my fake company Esq")
+                .address("11 fake street")
+                .city("Glasgow")
+                .county("Derbyshire")
+                .postal("G4 444")
+                .phone1("2345-3333")
+                .phone2("2333-1233")
+                .email("manny@fakestmail.co.fake")
+                .web("https://www.mywebsitetest.test")
+                .build();
+
+        Person testPerson2 = Person.builder().firstName("jj").lastName("doe")
+                .companyName("my fake company")
+                .address("11 fake street")
+                .city("Glasgow")
+                .county("Lanarkshire")
+                .postal("G4 444")
+                .phone1("2345-3333")
+                .phone2("2333-1233")
+                .email("manny@fakestmail.co.fake")
+                .web("https://www.mywebsitetest.test")
+                .build();
+        FileLoader mockLoader = mock(CSVFileLoader.class);
+        when(mockLoader.parseFile("myfilelocation")).thenReturn(List.of(testPerson, testPerson2));
+        PersonQueryer pq = new PersonQueryer("myfilelocation", mockLoader);
+        List<Person> results = pq.filterByCompanyContainsEsq();
+        assertEquals(1, results.size());
+        assertEquals(testPerson, results.get(0));
+    }
 }

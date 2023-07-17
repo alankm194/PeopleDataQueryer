@@ -2,6 +2,7 @@ package com.alan.peopledataqueryer.person;
 
 import com.alan.peopledataqueryer.fileloader.FileLoader;
 import com.alan.peopledataqueryer.filter.CompanyNameFilterByEsq;
+import com.alan.peopledataqueryer.filter.CountyNameFilterByDerbyshire;
 import com.alan.peopledataqueryer.filter.PersonFilter;
 
 import java.io.IOException;
@@ -16,8 +17,15 @@ public class PersonQueryer implements DataQueryer {
 
     @Override
     public List<Person> filterByCompanyContainsEsq() {
-        PersonFilter companyNamefilter = new CompanyNameFilterByEsq();
-        return companyNamefilter.filter(fullPersonList);
+        PersonFilter companyNameFilter = new CompanyNameFilterByEsq();
+        return companyNameFilter.filter(fullPersonList);
     }
+
+    @Override
+    public List<Person> filterByCountyNameDerbyshire() {
+        PersonFilter countyNameFilter = new CountyNameFilterByDerbyshire();
+        return countyNameFilter.filter(fullPersonList);
+    }
+
 
 }
