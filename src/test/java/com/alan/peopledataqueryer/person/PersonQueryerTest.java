@@ -41,9 +41,12 @@ public class PersonQueryerTest {
         FileLoader mockLoader = mock(CSVFileLoader.class);
         when(mockLoader.parseFile("myfilelocation")).thenReturn(List.of(testPerson, testPerson2));
         PersonQueryer pq = new PersonQueryer("myfilelocation", mockLoader);
-        List<Person> results = pq.executeFilter(1);
+        List<ResultFormat> results = pq.executeFilter(1);
         assertEquals(1, results.size());
-        assertEquals(testPerson, results.get(0));
+        assertEquals(String.format("%s %s",testPerson.getFirstName(), testPerson.getLastName()), results.get(0).getName());
+        assertEquals(testPerson.getCompanyName(), results.get(0).getCompany());
+        assertEquals(testPerson.getPosition(), results.get(0).getPosition());
+
     }
 
     @Test
@@ -74,9 +77,11 @@ public class PersonQueryerTest {
         FileLoader mockLoader = mock(CSVFileLoader.class);
         when(mockLoader.parseFile("myfilelocation")).thenReturn(List.of(testPerson, testPerson2));
         PersonQueryer pq = new PersonQueryer("myfilelocation", mockLoader);
-        List<Person> results = pq.executeFilter(2);
+        List<ResultFormat> results = pq.executeFilter(1);
         assertEquals(1, results.size());
-        assertEquals(testPerson, results.get(0));
+        assertEquals(String.format("%s %s",testPerson.getFirstName(), testPerson.getLastName()), results.get(0).getName());
+        assertEquals(testPerson.getCompanyName(), results.get(0).getCompany());
+        assertEquals(testPerson.getPosition(), results.get(0).getPosition());
     }
 
     @Test
@@ -107,9 +112,11 @@ public class PersonQueryerTest {
         FileLoader mockLoader = mock(CSVFileLoader.class);
         when(mockLoader.parseFile("myfilelocation")).thenReturn(List.of(testPerson, testPerson2));
         PersonQueryer pq = new PersonQueryer("myfilelocation", mockLoader);
-        List<Person> results = pq.executeFilter(3);
+        List<ResultFormat> results = pq.executeFilter(1);
         assertEquals(1, results.size());
-        assertEquals(testPerson, results.get(0));
+        assertEquals(String.format("%s %s",testPerson.getFirstName(), testPerson.getLastName()), results.get(0).getName());
+        assertEquals(testPerson.getCompanyName(), results.get(0).getCompany());
+        assertEquals(testPerson.getPosition(), results.get(0).getPosition());
     }
 
     @Test
@@ -140,9 +147,11 @@ public class PersonQueryerTest {
         FileLoader mockLoader = mock(CSVFileLoader.class);
         when(mockLoader.parseFile("myfilelocation")).thenReturn(List.of(testPerson, testPerson2));
         PersonQueryer pq = new PersonQueryer("myfilelocation", mockLoader);
-        List<Person> results = pq.executeFilter(4);
+        List<ResultFormat> results = pq.executeFilter(1);
         assertEquals(1, results.size());
-        assertEquals(testPerson, results.get(0));
+        assertEquals(String.format("%s %s",testPerson.getFirstName(), testPerson.getLastName()), results.get(0).getName());
+        assertEquals(testPerson.getCompanyName(), results.get(0).getCompany());
+        assertEquals(testPerson.getPosition(), results.get(0).getPosition());
     }
 
     @Test
@@ -173,9 +182,11 @@ public class PersonQueryerTest {
         FileLoader mockLoader = mock(CSVFileLoader.class);
         when(mockLoader.parseFile("myfilelocation")).thenReturn(List.of(testPerson, testPerson2));
         PersonQueryer pq = new PersonQueryer("myfilelocation", mockLoader);
-        List<Person> results = pq.executeFilter(5);
+        List<ResultFormat> results = pq.executeFilter(1);
         assertEquals(1, results.size());
-        assertEquals(testPerson, results.get(0));
+        assertEquals(String.format("%s %s",testPerson.getFirstName(), testPerson.getLastName()), results.get(0).getName());
+        assertEquals(testPerson.getCompanyName(), results.get(0).getCompany());
+        assertEquals(testPerson.getPosition(), results.get(0).getPosition());
     }
 
     @Test
@@ -206,8 +217,10 @@ public class PersonQueryerTest {
         FileLoader mockLoader = mock(CSVFileLoader.class);
         when(mockLoader.parseFile("myfilelocation")).thenReturn(List.of(testPerson, testPerson2));
         PersonQueryer pq = new PersonQueryer("myfilelocation", mockLoader);
-        List<Person> results = pq.executeFilter(6);
+        List<ResultFormat> results = pq.executeFilter(1);
         assertEquals(1, results.size());
-        assertEquals(testPerson, results.get(0));
+        assertEquals(String.format("%s %s",testPerson.getFirstName(), testPerson.getLastName()), results.get(0).getName());
+        assertEquals(testPerson.getCompanyName(), results.get(0).getCompany());
+        assertEquals(testPerson.getPosition(), results.get(0).getPosition());
     }
 }

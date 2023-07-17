@@ -5,6 +5,8 @@ import java.util.List;
 
 public interface DataQueryer {
 
-    public List<Person> executeFilter(int option);
+    public List<ResultFormat> executeFilter(int option);
+
+
 
 }
