@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CSVFileLoader implements FileLoader{
 
-    private static final int STARTING_POSITION = 2;
+    private static final int STARTING_POSITION = 1;
     enum CSVHeaders {
         first_name,
         last_name,
