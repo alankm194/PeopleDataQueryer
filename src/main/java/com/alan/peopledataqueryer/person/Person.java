@@ -1,4 +1,4 @@
-package com.alan.peopledataqueryer;
+package com.alan.peopledataqueryer.person;
 
 import lombok.Builder;
 import lombok.Data;

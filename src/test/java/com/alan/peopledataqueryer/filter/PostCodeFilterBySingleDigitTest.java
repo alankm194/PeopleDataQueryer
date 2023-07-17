@@ -1,6 +1,6 @@
 package com.alan.peopledataqueryer.filter;
 
-import com.alan.peopledataqueryer.Person;
+import com.alan.peopledataqueryer.person.Person;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

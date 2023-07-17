@@ -1,6 +1,6 @@
 package com.alan.peopledataqueryer.filter;
 
-import com.alan.peopledataqueryer.Person;
+import com.alan.peopledataqueryer.person.Person;
 
 import java.util.List;
 import java.util.Optional;
