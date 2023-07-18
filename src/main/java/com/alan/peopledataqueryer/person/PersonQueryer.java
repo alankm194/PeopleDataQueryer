@@ -12,7 +12,6 @@ public class PersonQueryer implements DataQueryer {
     private final List<Person> fullPersonList;
 
     private final Map<Integer, PersonFilter> optionToFilterMap;
-
     public PersonQueryer(String fileLocation, FileLoader loader) throws IOException {
         optionToFilterMap = Map.of(
                 1, new CompanyNameFilterByEsq(),
@@ -25,12 +24,13 @@ public class PersonQueryer implements DataQueryer {
         fullPersonList = loader.parseFile(fileLocation);
     }
 
-    public List<ResultFormat> executeFilter(int option) {
-        PersonFilter personFilter = optionToFilterMap.get(option);
+    public List<ResultFormat> selectFilter(int option) {
+        return executeFilter(optionToFilterMap.get(option));
+    }
+    private List<ResultFormat> executeFilter(PersonFilter personFilter) {
         var filteredList = personFilter.filter(fullPersonList);
         return formatResults(filteredList);
     }
-
 
     private List<ResultFormat> formatResults(List<Person> people) {
         return people.stream()

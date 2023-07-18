@@ -43,7 +43,7 @@ public class PersonQueryCli {
                 try {
                     int option = Integer.parseInt(command);
                     if (option >= 1 && option <= optionsList.size()) {
-                        printResults(dataQueryer.executeFilter(option));
+                        printResults(dataQueryer.selectFilter(option));
                     } else {
                         System.out.println("Error, Number out of range of possible options. Please enter in a number that corresponds to a command");
                     }
